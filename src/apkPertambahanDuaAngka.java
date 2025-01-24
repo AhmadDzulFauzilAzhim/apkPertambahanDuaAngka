@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,8 +35,8 @@ public class apkPertambahanDuaAngka extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtAngka1 = new javax.swing.JTextField();
+        txtAngka2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,18 +54,38 @@ public class apkPertambahanDuaAngka extends javax.swing.JFrame {
         });
 
         jButton2.setText("Hapus");
-
-        jButton3.setText("Keluar");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Keluar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        txtAngka1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngka1ActionPerformed(evt);
+            }
+        });
+        txtAngka1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngka1KeyTyped(evt);
+            }
+        });
+
+        txtAngka2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngka2ActionPerformed(evt);
+            }
+        });
+        txtAngka2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngka2KeyTyped(evt);
             }
         });
 
@@ -87,9 +110,9 @@ public class apkPertambahanDuaAngka extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(64, 64, 64)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(jTextField1))))
-                .addContainerGap(209, Short.MAX_VALUE))
+                            .addComponent(txtAngka2, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(txtAngka1))))
+                .addContainerGap(429, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,17 +120,17 @@ public class apkPertambahanDuaAngka extends javax.swing.JFrame {
                 .addGap(99, 99, 99)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAngka1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAngka2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,16 +154,70 @@ public class apkPertambahanDuaAngka extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+         try {
+        // Tangkap input dari txtAngka1 dan txtAngka2
+        int angka1 = Integer.parseInt(txtAngka1.getText());
+        int angka2 = Integer.parseInt(txtAngka2.getText());
+        
+        // Lakukan penjumlahan
+        int hasil = angka1 + angka2;
+        
+        // Tampilkan hasil hanya dalam JOptionPane
+        JOptionPane.showMessageDialog(this, "Hasil penjumlahan: " + hasil, "Hasil", JOptionPane.INFORMATION_MESSAGE);
+     } catch (NumberFormatException ex) {
+        // Jika input bukan angka, tampilkan pesan error
+        JOptionPane.showMessageDialog(this, "Input harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE);
+     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtAngka1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngka1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtAngka1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtAngka2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngka2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtAngka2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        txtAngka1.setText("");
+          txtAngka2.setText("");
+          txtAngka1.requestFocus();
+
+    
+    // Tampilkan pesan konfirmasi
+    JOptionPane.showMessageDialog(this, "Input dan hasil telah dihapus.", "Hapus", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", JOptionPane.YES_NO_OPTION);
+    if (confirm == JOptionPane.YES_OPTION) {
+        System.exit(0); // Keluar dari aplikasi
+    }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtAngka1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngka1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+    
+    // Jika karakter bukan digit (angka), maka hentikan input dan tampilkan pesan error
+    if (!Character.isDigit(c)) {
+        evt.consume(); // Mencegah karakter yang bukan angka masuk ke dalam JTextField
+        JOptionPane.showMessageDialog(this, "Input harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_txtAngka1KeyTyped
+
+    private void txtAngka2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngka2KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+    
+    // Jika karakter bukan digit (angka), maka hentikan input dan tampilkan pesan error
+    if (!Character.isDigit(c)) {
+        evt.consume(); // Mencegah karakter yang bukan angka masuk ke dalam JTextField
+        JOptionPane.showMessageDialog(this, "Input harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_txtAngka2KeyTyped
 
     /**
      * @param args the command line arguments
@@ -184,7 +261,7 @@ public class apkPertambahanDuaAngka extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtAngka1;
+    private javax.swing.JTextField txtAngka2;
     // End of variables declaration//GEN-END:variables
 }
