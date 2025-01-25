@@ -68,3 +68,5 @@ Beberapa ide pengembangan aplikasi ini:
 Ahmad Dzul Fauzil Azhim - 2210010389
 
 ## Demo
+
+![App Screenshot](https://github.com/AhmadDzulFauzilAzhim/apkPertambahanDuaAngka/blob/main/img/demo%20aplikasi%20pertambahan%20dua%20angka.gif)
